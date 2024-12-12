@@ -23,7 +23,7 @@ export default function page() {
 
   return (
     <div>
-        <Navbar />
+        
         <ProgressBar progress={barProgress} /> 
         {
             (barProgress === 0 || barProgress === 1/3) &&
