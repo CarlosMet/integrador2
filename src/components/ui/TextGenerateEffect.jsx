@@ -32,7 +32,7 @@ export const TextGenerateEffect = ({
         {wordsArray.map((word, idx) => (
           <motion.span
             key={word + idx}
-            className={`${idx > 7 ? 'text-purple' : "text-white"}`}
+            className={`${idx > 5 ? 'text-purple-400 font-extrabold' : "text-white font-bold"}`}
             style={{
               filter: filter ? "blur(10px)" : "none",
             }}

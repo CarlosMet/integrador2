@@ -13,7 +13,7 @@ export default function Select({getSelectedCar}) {
     }
 
   return (    
-        <select className='w-full border border-gray-600 px-2 py-[10px] rounded-lg' onChange={setSelectedCar} name="" id="">
+        <select className='w-full border border-gray-600 px-2 py-[10px] rounded-lg bg-gray-400/10 text-slate-300' onChange={setSelectedCar} name="" id="">
             {vehiclesInfo.sort((a, b) => a.model.localeCompare(b.model))            
             .map((vehicle)=>{
                 return(

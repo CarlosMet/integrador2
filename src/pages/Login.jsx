@@ -1,39 +1,51 @@
-import { useState } from "react";
-import Headers from "../components/Headers";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import MagicButton from '../components/ui/MagicButton'
+
 
 const Login = () => {
-  const [getCorreo, setCorreo] = useState("");
-  const [getContraseña, setContraseña] = useState("");
-  const [getUsusarios, setUsuarios] = useState([]);
+
+  const [users, setUsers] = useState([{}])
+
+  const navigate = useNavigate()
+
+  const submitHandler = (e)=>{
+    e.preventDefault()
+    const userInput = e.target.user.value
+    const passwordInput = e.target.password.value
+
+    const userToCompare = users.filter((user)=>{
+      return user.nombre === userInput
+    })
+
+    if(userToCompare[0]){
+      if(userToCompare[0].password === passwordInput){
+        console.log("succesfully logged")
+        navigate("/user")
+      }else{
+        console.log("credentials error")
+      }
+    }else{
+      console.log("credentials error")
+    }
+  }
+
+  useEffect(()=>{
+    const fetchUsers = async()=>{
+      const users = await fetch("http://localhost:8080/usuarios")
+      const users_data = await users.json()      
+      setUsers(users_data)
+    }
+
+    fetchUsers()
+  }, [])
   
     return (
-    <form className="container">
-      <div>
-        <Headers/>
-      </div>
-      <div>
-        <h1>LOGIN</h1>
-      </div>
-
-      <div className="seccion-img">
-        <img src="#" alt="" />
-      </div>
-      
-
-      <div className="correo" >
-        <label htmlFor="">Correo</label>
-        <input onChange={(e)=> setCorreo(e.target.value)}type="text" />
-      </div>
-
-      <div className="contraseña">
-        <label htmlFor="">Contraseña</label>
-        <input onChange={(e) => setContraseña(e.target.value)} type="text" />
-      </div>
-      <div>
-        <button onClick={iniciarSesion} type="button">
-          iniciar sesion
-        </button>
-      </div>
+    <form onSubmit={submitHandler} action="" className="bg-slate-950">
+    
+      <input type="text" className="border border-black" name="user" />
+      <input type="text" className="border border-black" name="password" />
+      <MagicButton title={"Iniciar sesión"} />
     </form>
   );
 };

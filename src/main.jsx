@@ -5,6 +5,8 @@ import './index.css'
 import Home from './pages/Home.jsx'
 import NotFound from './pages/NotFound.jsx'
 import VehicleAdd from './pages/VehicleAdd.jsx'
+import Login from './pages/Login.jsx'
+import UserPage from './pages/UserPage.jsx'
 
 
 const router = createBrowserRouter([
@@ -14,7 +16,15 @@ const router = createBrowserRouter([
     // errorElement: <NotFound />
   },
   {
-    path: "/agregar",
+    path: "/login",
+    element: <Login />
+  },
+  {
+    path: "/user",
+    element: <UserPage />
+  },
+  {
+    path:"/agregar",
     element: <VehicleAdd />
   }
 ])

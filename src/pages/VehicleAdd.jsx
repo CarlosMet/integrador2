@@ -22,7 +22,7 @@ export default function page() {
     }, [barProgress])
 
   return (
-    <div>
+    <div className='bg-slate-950 h-screen w-full flex items-center flex-col justify-center lg:gap-12'>
         
         <ProgressBar progress={barProgress} /> 
         {

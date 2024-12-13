@@ -10,13 +10,14 @@ import Footer from '../components/Footer'
 
 import { Link } from "react-router-dom";
 import Headers from "../components/Headers";
+import Navbar from '../components/Navbar'
 
 
 const Home = () => {
   return (
 
-    <div className='bg-black-100'>
-      <FloatingNav navItems={[{name: "about", link: "agregar", icon: ""}]} />      
+    <div className='bg-slate-950 relative'>
+      <Navbar />
       <Hero />
       <GridCards />
       <Footer />
