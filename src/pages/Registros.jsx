@@ -4,10 +4,13 @@ import Navbar from "../components/Navbar";
 import "./diseño-pages.css";
 import MagicButton from "../components/ui/MagicButton";
 
+
 const Registros = () => {
   return (
     
     <div className="page-container">
+      {      }
+      <Navbar/>
       
       <form className="form-container">
         <h2 className="form-title">Crear Cuenta</h2>
@@ -37,4 +40,4 @@ const Registros = () => {
     </div>
   );
 };
-export default Registros;
+export default Registros;
