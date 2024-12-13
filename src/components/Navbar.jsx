@@ -36,16 +36,32 @@ export default function Navbar({user = true}) {
 
       <div className='flex items-center gap-3'>
         {user ? <>
-        <Link to={"/"} className='text-slate-800 bg-white px-4 lg:px-8 rounded-full py-1 font-bold'>Log out</Link>
-          <div className='w-10 h-10 rounded-full grid place-items-center bg-white/25'>
-
-          </div>
+        <Link to={"/login"} className='text-slate-800 bg-white px-4 lg:px-8 rounded-full py-1 font-bold'>Log out</Link>
+         
+          
           </>
           : <>
              <Link to={"/login"} className='text-slate-800 bg-white px-4 lg:px-8 rounded-full py-1 font-bold'>Log in</Link>
           </>
         }
       </div>
+
+<div className='flex items-center gap-3'>
+<Link
+  to={"/register"}
+  className="text-slate-800 bg-white px-4 lg:px-8 rounded-full py-1 font-bold"
+>
+  Register
+</Link>
+<div className="w-12 h-12 rounded-full grid place-items-center bg-white/25 shadow-md">
+  <span className="text-white font-semibold">+</span>
+  
+
+</div>
+      
+</div>
+
+      
 
       
       

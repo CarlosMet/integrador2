@@ -1,22 +1,40 @@
+import { div } from "framer-motion/client";
 import Headers from "../components/Headers";
+import Navbar from "../components/Navbar";
+import "./diseño-pages.css";
+import MagicButton from "../components/ui/MagicButton";
 
 const Registros = () => {
-  return ( 
-    <form className="registro-container">
-      <div>
-      <Headers/>
+  return (
+    
+    <div className="page-container">
+      
+      <form className="form-container">
+        <h2 className="form-title">Crear Cuenta</h2>
+        <div className="form-section">
+          <input
+            type="text"
+            placeholder="Nombre completo"
+            className="form-input"
+          />
+          <input
+            type="email"
+            placeholder="Correo electrónico"
+            className="form-input"
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            className="form-input"
+          />
+          <div className="text-center">
+        <MagicButton 
+          title={"Register"} 
+          className="submit-button"/>
       </div>
-      <div className="sec-img">
-        <img src="" alt="" />
-      </div>
-      <h2 className="registro-title">Crear Cuenta</h2>
-      <div className="registro-seccion">
-        <input type="text" placeholder="Nombre completo" className="registro-input" />
-        <input type="email" placeholder="Correo electrónico" className="registro-input" />
-        <input type="password" placeholder="Contraseña" className="registro-input" />
-        <button type="submit" className="registro-button">Registrar</button>
-      </div>
-    </form>
-    );
-  };  
+        </div>
+      </form>
+    </div>
+  );
+};
 export default Registros;

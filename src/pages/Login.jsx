@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MagicButton from '../components/ui/MagicButton'
+import "./diseño-pages.css"
 
 
 const Login = () => {
@@ -40,14 +41,44 @@ const Login = () => {
     fetchUsers()
   }, [])
   
-    return (
-    <form onSubmit={submitHandler} action="" className="bg-slate-950">
-    
-      <input type="text" className="border border-black" name="user" />
-      <input type="text" className="border border-black" name="password" />
-      <MagicButton title={"Iniciar sesión"} />
+  return (
+    <form 
+      onSubmit={submitHandler} 
+      action="" 
+      className="login-form"
+    >
+      <h1 className="login-title">Login</h1>
+  
+      <div className="form-group">
+        <label htmlFor="user" className="form-label">Usuario</label>
+        <input 
+          type="text" 
+          id="user" 
+          name="user" 
+          className="form-input"
+          placeholder="Ingresa tu usuario"
+        />
+      </div>
+  
+      <div className="form-group">
+        <label htmlFor="password" className="form-label">Contraseña</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          className="form-input"
+          placeholder="Ingresa tu contraseña"
+        />
+      </div>
+  
+      <div className="text-center">
+        <MagicButton 
+          title={"Iniciar sesión"} 
+          className="submit-button"/>
+      </div>
+      
     </form>
   );
-};
-
-export default Login;
+}
+  
+  export default Login;
