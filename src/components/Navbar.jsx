@@ -3,7 +3,7 @@ import { FaAccessibleIcon } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import MagicButton from './ui/MagicButton'
 
-export default function Navbar({user = true}) {
+export default function Navbar({user = false}) {
 
     const PATHS = [
       {

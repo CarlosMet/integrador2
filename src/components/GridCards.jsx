@@ -2,15 +2,13 @@
 import React, { useRef } from 'react'
 import GoogleGeminiEffect from './ui/GoogleGeminiEffect'
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion'
+import CheckList from './CheckList'
 
 export default function GridCards() {
-
-    
-
     
 
   return (
-    <section className='relative flex h-[300vh] w-full pt-10'>        
+    <section className='relative flex h-[350vh] w-full pt-10'>        
             <SVG />                   
     </section>
   )
@@ -35,10 +33,21 @@ const SVG = ()=>{
     const pathLengthThird = useTransform(scrollYProgress, [0.2, 0.6], [0,1]) 
     const pathLengthFourth = useTransform(scrollYProgress, [0.1, 0.5], [0,1]) 
     const pathLengthFifth = useTransform(scrollYProgress, [0, 0.4], [0,1]) 
+    const titleScales = useTransform(scrollYProgress, [0, 0.4, 0.7, 0.9], [0.5, 1, 1, 0])
+    const titleOpacity = useTransform(scrollYProgress, [0, 0.5, 0.7, 0.9], [0.2, 1, 1, 0])
 
     return (
         <div ref={ref} className='w-full'>
-            <h3 className='text-3xl text-white sticky top-[445px] translate-y-1/2 text-center font-black tracking-tighter md:text-4xl lg:text-5xl z-20'>Second title</h3>
+            <motion.div 
+                className=' sticky top-40 translate-y-1/2 z-20'
+                style={{scale:titleScales, opacity: titleOpacity}}
+                >
+                    <h2 className='text-3xl text-white text-center font-black tracking-tighter md:text-4xl lg:text-5xl'>
+                        Cobertura Personalizada, <br /> Elige  <span className='text-purple-400'>lo que Necesitas</span>
+                    </h2>
+                    <CheckList progress={scrollYProgress} />
+                
+            </motion.div>
             <svg
                 width="1440"
                 height="890"
