@@ -24,9 +24,7 @@ const SVG = ()=>{
 
     })
     
-    useMotionValueEvent(scrollYProgress, "change", (latest) =>{
-        console.log(latest)
-    })
+    
 
     const pathLengthFirst = useTransform(scrollYProgress, [0, 0.4], [0,1]) 
     const pathLengthSecond = useTransform(scrollYProgress, [0.1, 0.5], [0,1]) 

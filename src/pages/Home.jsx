@@ -11,6 +11,7 @@ import Footer from '../components/Footer'
 import { Link } from "react-router-dom";
 import Headers from "../components/Headers";
 import Navbar from '../components/Navbar'
+import Ventajas from '../components/Ventajas'
 
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
       <Navbar />
       <Hero />
       <GridCards />
+      <Ventajas />
       <Footer />
 
    
