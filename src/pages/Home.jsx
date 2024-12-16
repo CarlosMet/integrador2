@@ -20,8 +20,8 @@ const Home = () => {
     <div className='bg-slate-950 relative'>
       <Navbar />
       <Hero />
-      <GridCards />
       <Ventajas />
+      <GridCards />
       <Footer />
 
    
