@@ -29,7 +29,6 @@ export default function Form({getProgress, getUserVehicle}) {
         e.preventDefault()
         getProgress(2/3)
     }
-
   return (
     <form onSubmit={submitHandler} action="" className=' flex flex-col md:flex-row md:justify-center mt-6 lg:mt-10 xl:mt-16 px-16 lg:px-0 rounded-xl w-11/12 mx-auto lg:w-10/12 xl:w-9/12 py-4 lg:py-16 bg-slate-900 bg-opacity-10 backdrop-blur-md border border-white border-opacity-20 shadow-lg z-20 relative'>
 
