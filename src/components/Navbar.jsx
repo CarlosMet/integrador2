@@ -37,7 +37,7 @@ export default function Navbar({ user = true }) {
               to={"/login"}
               className="text-slate-800 bg-white px-4 lg:px-8 rounded-full py-1 font-bold"
             >
-              Log out
+              login
             </Link>
           </>
         ) : (
