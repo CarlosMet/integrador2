@@ -21,6 +21,7 @@ const Login = () => {
     if(userToCompare[0]){
       if(userToCompare[0].password === passwordInput){
         console.log("succesfully logged")
+        window.localStorage.setItem("user", JSON.stringify(userToCompare[0]))
         navigate("/user")
       }else{
         console.log("credentials error")

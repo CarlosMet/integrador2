@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaAccessibleIcon } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import MagicButton from './ui/MagicButton'
@@ -19,6 +19,11 @@ export default function Navbar({user = false}) {
         icon: <FaAccessibleIcon color='gray' size={22}/>
       }
     ]
+
+    const [loggedUser, setLoggedUser] = useState(()=>{
+      const localUser = window.localStorage.getItem("user")
+      return localUser ? JSON.parse(localUser) : ""
+    })
   
   return (
     <nav className='sticky top-4  z-30 bg-slate-900 w-full md:w-10/12 lg:w-8/12 xl:w-7/12 mx-auto px-6 md:px-9 lg:px-12 py-2 lg:py-3 rounded-xl flex justify-around'>
@@ -41,9 +46,10 @@ export default function Navbar({user = false}) {
 
           </div>
           </>
-          : <>
-             <Link to={"/login"} className='text-slate-800 bg-white px-4 lg:px-8 rounded-full py-1 font-bold'>Log in</Link>
-          </>
+          : loggedUser !== "" ?
+            <Link to={"/user"} className='text-slate-800 bg-white px-4 lg:px-8 rounded-full py-1 font-bold'>Log in</Link>
+            :<Link to={"/login"} className='text-slate-800 bg-white px-4 lg:px-8 rounded-full py-1 font-bold'>Log in</Link>
+          
         }
       </div>
 
