@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MagicButton from '../components/ui/MagicButton'
 
 
@@ -42,11 +42,17 @@ const Login = () => {
   }, [])
   
     return (
-    <form onSubmit={submitHandler} action="" className="bg-slate-950">
+    <form onSubmit={submitHandler} action="" className="bg-slate-950 h-screen w-full flex items-center justify-center">
     
-      <input type="text" className="border border-black" name="user" />
-      <input type="text" className="border border-black" name="password" />
-      <MagicButton title={"Iniciar sesión"} />
+      <div>
+        <input type="text" className="border py-1 px-3 rounded-lg focus:outline-none border-gray-700 bg-transparent text-white" name="user" /> <br />
+        <input type="text" className="border py-1 px-3 rounded-lg focus:outline-none border-gray-700 bg-transparent text-white" name="password" /> <br />
+        <button className="text-white text-center" type="submit">Iniciar sesión</button>
+        <div className="text-white flex gap-2">
+          <p className="text-white">No tienes cuenta?</p>
+          <Link to={"/registro"}>Registrarse</Link>
+        </div>
+      </div>
     </form>
   );
 };

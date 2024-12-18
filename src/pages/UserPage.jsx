@@ -18,7 +18,7 @@ export default function UserPage() {
     //usar localstorage para cargar el usuario logeado
 
   return (
-    <section className='bg-[#13111C] text-white w-full'>
+    <section className='bg-[#13111C] min-h-screen text-white w-full'>
         
         {loggedUser !== "" ? <UserProfile loggedUser={loggedUser} />
         : <div className='flex flex-col justify-center items-center gap-4 h-[90vh]'>

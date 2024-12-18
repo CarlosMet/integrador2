@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import { FaCar } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import MagicButton from './ui/MagicButton'
-import { IoEye, IoEyeOff } from "react-icons/io5"
+import { IoEye, IoEyeOff, IoSettingsOutline } from "react-icons/io5"
+import { TbBusinessplan } from "react-icons/tb"
+import { FaCarCrash } from "react-icons/fa"
+import { AiOutlineRise } from "react-icons/ai"
+import { FaAngleDown } from "react-icons/fa6"
 
 export default function UserProfile({loggedUser}) {
     const [user, setUser] = useState(loggedUser)
@@ -25,13 +29,65 @@ export default function UserProfile({loggedUser}) {
         }if(objectKey === "password"){
             const newUser = {...user, password: e.target.value}
             setUser(newUser)
-        }
-        
+        }       
 
+    }
+
+    const updateUser = async()=>{
+        const response = await fetch(`http://localhost:8080/usuarios/${loggedUser.idUsuario}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json',  // El tipo de contenido que se está enviando (JSON en este caso)
+              },
+            body: JSON.stringify(user)
+        })
+        window.localStorage.setItem("user", JSON.stringify(user))
+        console.log(JSON.stringify(user))
     }
   return (
     <div className='flex h-full'>
         <aside className='w-3/12 xl:w-[20%] h-full px-10 py-12 xl:py-20'>
+
+            <div className='flex items-center gap-2'>
+                <div className='w-9 h-9 rounded-full bg-white overflow-hidden border border-gray-700'>
+                    <img className='bg-transparent' src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png" alt="" />
+                </div>  
+                <div className='leading-3   '>
+                    <p className='text-slate-200 font-bold'>
+                        {loggedUser.nombre}
+                    </p>
+                    <p className='text-sm text-slate-400'>
+                        Cuenta personal
+                    </p>
+                </div>
+                <button className='ml-3'>
+                    <FaAngleDown color='#909eb2' />
+                </button>
+            </div>
+
+
+            <div className='flex items-center gap-2 text-slate-100 mt-11 mb-2'>
+                <IoSettingsOutline size={22} color='#c084fc' />
+                <button >General</button>
+            </div>
+
+            <div className='flex items-center gap-2 text-slate-400 mb-2'>
+                <TbBusinessplan size={22} color='#909eb2' />
+                <button >Planes</button>
+            </div>
+
+            <div className='flex items-center gap-2 text-slate-400 mb-2'>
+                <FaCarCrash size={22} color='#909eb2' />
+                <button >Pólizas</button>
+            </div>
+
+            <div className='flex items-center gap-2 text-slate-400 mb-11'>
+                <AiOutlineRise size={22} color='#909eb2' />
+                <button >Beneficios</button>
+            </div>
+
+            
+
             <Link to={"/agregar"}>
                 <MagicButton title={"Añadir vehículo"} icon={<FaCar />} />
             </Link>
@@ -69,7 +125,9 @@ export default function UserProfile({loggedUser}) {
                             </div>
                     </div>
 
-                    <MagicButton title={"Actualizar perfil"} />
+                    <div onClick={updateUser}>
+                        <MagicButton title={"Actualizar perfil"} />
+                    </div>
                 </form>
             </div>
 

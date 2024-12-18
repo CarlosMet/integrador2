@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound.jsx'
 import VehicleAdd from './pages/VehicleAdd.jsx'
 import Login from './pages/Login.jsx'
 import UserPage from './pages/UserPage.jsx'
+import Registros from './pages/Registros.jsx'
 
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path:"/agregar",
     element: <VehicleAdd />
+  },
+  {
+    path: "/registro",
+    element: <Registros />
   }
 ])
 
